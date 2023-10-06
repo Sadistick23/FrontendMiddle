@@ -23,7 +23,6 @@ const LangSwitcher = ({className}: LangSwitcherProps) => {
             className={classNames(styles.LangSwitcher, {}, [className])}
         >
             {t('Язык')}
-            {t('Языки')}
         </Button>
     );
 };
