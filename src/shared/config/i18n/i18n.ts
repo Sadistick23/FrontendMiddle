@@ -16,7 +16,7 @@ i18n
 
         fallbackLng: 'ru',
         interpolation: {
-            escapeValue: false,
+            escapeValue: false
         }
     });
 
