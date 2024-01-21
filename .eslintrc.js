@@ -1,14 +1,16 @@
 module.exports = {
     env: {
         browser: true,
-        es2021: true
+        es2021: true,
+        jest: true
     },
     extends: [
         'standard-with-typescript',
         'plugin:react/recommended',
         "eslint:recommended",
         "plugin:react/recommended",
-        "plugin:react/jsx-runtime"
+        "plugin:react/jsx-runtime",
+        'plugin:i18n-json/recommended'
     ],
     overrides: [
         {
@@ -27,6 +29,7 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
         project: './tsconfig.json',
+        extraFileExtensions: [".json"],
         tsconfigRootDir: __dirname
     },
     plugins: [
@@ -46,7 +49,7 @@ module.exports = {
         '@typescript-eslint/no-floating-promises': 'off',
         '@typescript-eslint/no-unnecessary-type-assertion': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
-        '@typescript-eslint/no-unused-vars': 'error',
+        '@typescript-eslint/no-unused-vars': 'warn',
         'no-unused-vars': 'off',
 
         semi: ['error', 'always'],
@@ -56,7 +59,18 @@ module.exports = {
 
         'no-trailing-spaces': 'off',
         'no-multiple-empty-lines': ['error', { max: 2, maxBOF: 1 }],
-        'eol-last': 'off'
+        'eol-last': 'off',
+
+        // i18next
+        'i18n-json/valid-message-syntax': [2, {
+            syntax: 'icu'
+        }],
+        'i18n-json/valid-json': 2,
+        'i18n-json/sorted-keys': [2, {
+            order: 'asc',
+            indentSpaces: 2
+        }],
+        'i18n-json/identical-keys': 0
     },
     globals: {
         __IS_DEV__: true
